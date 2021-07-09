@@ -29,18 +29,15 @@ namespace Homo.Auth.Filters
             }
 
             string authorization = context.HttpContext.Request.Headers["Authorization"];
-            string token = authorization.Substring("Bearer ".Length).Trim();
-
+            string token = authorization != null ? authorization.Substring("Bearer ".Length).Trim() : null;
             if (token == null || token == "")
             {
                 throw new CustomException(Homo.Auth.Constants.ERROR_CODE.UNAUTH_ACCESS_API, HttpStatusCode.Forbidden);
             }
-
             ClaimsPrincipal payload = JWTHelper.GetPayload(_jwtKey, token);
             bool isAllow = (_permissions != null && _permissions.Any(x => payload.IsInRole(x.ToString())))
                     || _permissions.Contains(PERMISSIONS.NO)
                     || payload.IsInRole(PERMISSIONS.ADMIN.ToString());
-
             // permission block
             if (payload == null || !isAllow)
             {
