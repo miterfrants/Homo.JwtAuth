@@ -6,5 +6,6 @@ namespace Homo.Auth.Constants
         public static string UNAUTH_ACCESS_API = "UNAUTH_ACCESS_API";
         public static string TOKEN_EXPIRED = "TOKEN_EXPIRED";
         public static string USER_ID_NOT_IN_TOKEN = "USER_ID_NOT_IN_TOKEN";
+        public static string SECRETS_NOT_IN_APPSETTING = "SECRETS_NOT_IN_APPSETTING";
     }
 }

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Homo.JwtAuth</PackageId>
-    <PackageVersion>5.0.0</PackageVersion>
+    <PackageVersion>5.0.2</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

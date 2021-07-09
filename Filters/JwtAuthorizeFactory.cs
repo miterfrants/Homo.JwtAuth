@@ -1,8 +1,11 @@
 using System;
+using System.Net;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
-using Homo.Auth.Constants;
 using Microsoft.Extensions.Options;
+using Homo.Core.Constants;
+using Homo.Auth.Constants;
+
 
 namespace Homo.Auth.Filters
 {
@@ -18,6 +21,10 @@ namespace Homo.Auth.Filters
         public IFilterMetadata CreateInstance(IServiceProvider serviceProvider)
         {
             IOptions<Homo.Auth.Constants.AppSettings> config = serviceProvider.GetService<IOptions<Homo.Auth.Constants.AppSettings>>();
+            if (config.Value.Secrets == null || config.Value.Secrets.JwtKey == null)
+            {
+                throw new CustomException(Homo.Auth.Constants.ERROR_CODE.SECRETS_NOT_IN_APPSETTING, HttpStatusCode.InternalServerError);
+            }
             JwtAuthorizeAttribute attribute = new JwtAuthorizeAttribute(_permissions, config.Value.Secrets.JwtKey);
             return attribute;
         }
