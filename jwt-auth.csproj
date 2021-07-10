@@ -1,13 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Homo.JwtAuth</PackageId>
-    <PackageVersion>5.0.5</PackageVersion>
+    <PackageVersion>5.0.10</PackageVersion>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Homo.Core" Version="5.0.4" />
+    <PackageReference Include="Homo.Core" Version="5.0.8"/>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.7"/>
   </ItemGroup>
-
 </Project>

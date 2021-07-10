@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using Homo.Core.Constants;
 using Homo.Auth.Constants;
 
-
 namespace Homo.Auth.Filters
 {
     public class JwtAuthorizeFactory : ActionFilterAttribute, IFilterFactory

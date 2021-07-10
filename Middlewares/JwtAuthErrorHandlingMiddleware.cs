@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
-using Homo.Core.Helpers;
 using Homo.Core.Constants;
 using Homo.Core.Middlewares;
 
@@ -16,7 +14,6 @@ namespace Homo.Auth.Middlewares
     public class JwtAuthErrorHandlingMiddleware : ErrorHandlingMiddleware
     {
         private readonly RequestDelegate next;
-        private string envName;
         public JwtAuthErrorHandlingMiddleware(RequestDelegate next) : base(next)
         {
             this.next = next;
